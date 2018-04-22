@@ -9,6 +9,68 @@
   </head>
 
   <body>
+    <div class="ui borderless main menu">
+      <div class="ui text container">
+        <% if current_user %>
+          <%= link_to stories_url, class: "header item" do %>
+            neet
+          <% end %>
+          <div class="right menu">
+            <div class="ui simple dropdown item">
+              <%= image_tag current_user.image_url, class: 'menu-user-icon' %>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <%= link_to new_story_url, class: "item" do %>
+                  投稿する
+                <% end %>
+                <%= link_to logout_path, class: "item" do %>
+                  ログアウト
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <% else %>
+            <%= link_to root_url, class: "header item" do %>
+              Neeton
+            <% end %>
+            <div class="right menu">
+              <%= link_to '/auth/twitter', class: "item" do %>
+                ログイン
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="ui text container">
+      <% if notice %>
+        <div class="ui mini green message">
+          <i class="close icon"></i>
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="ui mini red message">
+          <i class="close icon"></i>
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
+    <div class="ui borderless bottom fixed menu">
+      <div class="ui text container">
+        <a class="item">Features</a>
+        <a class="item">Testimonials</a>
+        <a class="item">Sign-in</a>
+      </div>
+    </div>
   </body>
+  <script>
+  $('.message .close')
+    .on('click', function() {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+    })
+  ;</script>
 </html>
