@@ -1,0 +1,18 @@
+.ui.raised.very.padded.text.container.segment
+  h2.ui.header neet
+  br
+  p -ニートによるニートのためのChatStory-
+  br
+  br
+  br
+  br
+  - if current_user
+    .center
+      = link_to stories_url, class: 'ui button' do
+        i.share.icon
+        span Storyを見にいく
+  - else
+    = link_to 'Twitterでログインする', '/auth/twitter', class: "positive ui fluid submit button"
+    p.twitter-notice ※当サービスは自動でツイートすることはありません。
+  br
+  p.caution.center ※テスト版のため突然サイトを停止させることがあります。
