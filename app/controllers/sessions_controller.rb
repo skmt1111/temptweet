@@ -5,8 +5,6 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      session[:oauth_token] = auth.credentials.token
-      session[:oauth_token_secret] = auth.credentials.secret
       redirect_to root_url, notice: 'ログインしました'
     else
       redirect_to root_url, alert: 'ログインに失敗しました'

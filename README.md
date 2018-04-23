@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+cron 削除
+bundle exec whenever --clear-crontab
+
+cron 更新
+bundle exec whenever --update-crontab
+cron 確認
+bundle exec whenever

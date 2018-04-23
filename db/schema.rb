@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20180422142945) do
     t.string "provider", null: false
     t.string "uid", null: false
     t.string "image_url", null: false
+    t.string "token", null: false
+    t.string "secret", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
