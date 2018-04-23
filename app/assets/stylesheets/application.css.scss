@@ -14,3 +14,23 @@
  *= require_self
  */
 @import 'semantic-ui';
+.menu-user-icon {
+  max-height: 30px;
+  max-width: 30px;
+  border-radius: 15px;
+  margin: -10px !important;
+}
+
+.twitter-notice {
+  font-size: 12px;
+  text-align: right;
+}
+
+.caution {
+  color: lightgrey;
+  font-size: 14px;
+}
+
+.center {
+  text-align: center;
+}

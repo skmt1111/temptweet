@@ -1,18 +1,11 @@
 .ui.raised.very.padded.text.container.segment
-  h2.ui.header neet
-  br
-  p -ニートによるニートのためのChatStory-
-  br
-  br
-  br
-  br
-  - if current_user
-    .center
-      = link_to stories_url, class: 'ui button' do
-        i.share.icon
-        span Storyを見にいく
-  - else
-    = link_to 'Twitterでログインする', '/auth/twitter', class: "positive ui fluid submit button"
-    p.twitter-notice ※当サービスは自動でツイートすることはありません。
-  br
-  p.caution.center ※テスト版のため突然サイトを停止させることがあります。
+  .ui.form
+    = form_tag tweet_url do
+      .field
+        = text_area_tag :text, '', maxlength: 280, placeholder: 'ツイートを入力'
+      / .field
+      /   = number_field_tag :num, 10, in: 5...61, step: 5
+      .field
+        = select_tag :num, options_for_select(time_list), class: 'ui fluid dropdown'
+      .center
+        = submit_tag 'ツイートする', class: 'ui teal submit button'

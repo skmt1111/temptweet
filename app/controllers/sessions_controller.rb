@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
   def create
-    user = User.find_or_create_from_auth_hash(auth_hash)
-    session[:user_id] = user.id
-    redirect_to root_url, notice: 'ログインしました'
+    auth = request.env['omniauth.auth']
+    user = User.find_or_create_from_auth_hash(auth)
+
+    if user
+      session[:user_id] = user.id
+      session[:oauth_token] = auth.credentials.token
+      session[:oauth_token_secret] = auth.credentials.secret
+      redirect_to root_url, notice: 'ログインしました'
+    else
+      redirect_to root_url, alert: 'ログインに失敗しました'
+    end
   end
 
   def destroy
     reset_session
-    redirect_to root_url, notice: 'ログアウトしました'
-  end
-
-  private
-
-  def auth_hash
-    request.env['omniauth.auth']
+    redirect_to root_path, notice: 'ログアウトしました'
   end
 end

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     !!session[:user_id]
   end
 
-  def authenticate
+  def require_login
     return if logged_in?
     redirect_to root_url, notice: 'ログインしてください'
   end

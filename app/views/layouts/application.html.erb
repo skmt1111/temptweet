@@ -12,7 +12,7 @@
     <div class="ui borderless main menu">
       <div class="ui text container">
         <% if current_user %>
-          <%= link_to stories_url, class: "header item" do %>
+          <%= link_to tweet_new_url, class: "header item" do %>
             neet
           <% end %>
           <div class="right menu">
@@ -20,9 +20,6 @@
               <%= image_tag current_user.image_url, class: 'menu-user-icon' %>
               <i class="dropdown icon"></i>
               <div class="menu">
-                <%= link_to new_story_url, class: "item" do %>
-                  投稿する
-                <% end %>
                 <%= link_to logout_path, class: "item" do %>
                   ログアウト
                 <% end %>

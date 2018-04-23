@@ -59,3 +59,4 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'semantic-ui-sass'
 gem 'slim-rails'
+gem 'whenever', :require => false

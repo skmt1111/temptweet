@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'tweet', to: 'tweet#new', as: :tweet
   get '/', to: 'top#index', as: :top
-
+  get 'tweet', to: 'tweet#new', as: :tweet_new
+  post 'tweet/create', to: 'tweet#create', as: :tweet
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: :logout
 
