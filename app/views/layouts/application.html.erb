@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag('pen.png') %>
   </head>
 
   <body>
@@ -13,7 +14,7 @@
       <div class="ui text container">
         <% if current_user %>
           <%= link_to tweet_new_url, class: "header item" do %>
-            neet
+            Temp
           <% end %>
           <div class="right menu">
             <div class="ui simple dropdown item">
@@ -28,7 +29,7 @@
           </div>
           <% else %>
             <%= link_to root_url, class: "header item" do %>
-              Neeton
+              Temp
             <% end %>
             <div class="right menu">
               <%= link_to '/auth/twitter', class: "item" do %>
@@ -38,26 +39,28 @@
           <% end %>
       </div>
     </div>
-    <div class="ui text container">
-      <% if notice %>
+    <% if notice %>
+      <div class="ui text container">
         <div class="ui mini green message">
           <i class="close icon"></i>
           <%= notice %>
         </div>
-      <% end %>
-      <% if alert %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="ui text container">
         <div class="ui mini red message">
           <i class="close icon"></i>
           <%= alert %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
     <%= yield %>
-    <div class="ui borderless bottom fixed menu">
-      <div class="ui text container">
-        <a class="item">Features</a>
-        <a class="item">Testimonials</a>
-        <a class="item">Sign-in</a>
+    <div class="center">
+      <div class="ui horizontal small divided link list">
+        <%= link_to root_url, class: "item" do %>
+          © 2018 Temp
+        <% end %>
       </div>
     </div>
   </body>
