@@ -23,7 +23,7 @@ class TweetController < ApplicationController
   end
 
   def can_tweet_destroy
-    tweets = Tweet.where("destroy_date <= (now() + INTERVAL 30 SECOND)")
+    tweets = Tweet.where("destroy_date <= now()")
     tweets.each do |tweet|
       begin
         twitter_client(tweet.user.id).destroy_status(tweet.tweet_id)
